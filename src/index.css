@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --primary-color: #078930;
+  --primary-hover: #15803d;
+  --secondary-color: #fcdd09;
+  --accent-color: #da121a;
+  --text-dark: #111827;
+  --text-gray: #4b5563;
+  /* WCAG AA: text-light darkened for 4.5:1 contrast on white when used for body text */
+  --text-light: #6b7280;
+  --bg-light: #f9fafb;
+  --bg-white: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* GPU acceleration for animations (cross-browser) */
+* {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+}
+
+body {
+  font-family: 'Roboto', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  color: var(--text-dark);
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 100%);
+  min-height: 100vh;
+  /* Safe area for notched devices (iOS) */
+  padding-left: env(safe-area-inset-left, 0);
+  padding-right: env(safe-area-inset-right, 0);
+  /* Remove tap highlight on mobile for cleaner UX */
+  -webkit-tap-highlight-color: transparent;
+  tap-highlight-color: transparent;
+}
+
+
+/* Shared subtle grid pattern for all pages */
+.page-grid-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: 0;
+  background-image:
+    linear-gradient(var(--primary-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--primary-color) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 80px;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  padding: 0 24px;
+  height: 44px;
+  min-height: 44px;
+  min-width: 140px;
+  border-radius: 8px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(7, 137, 48, 0.2);
+  animation: button-pulse 3s ease-in-out infinite;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s, height 0.6s;
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 15px rgba(7, 137, 48, 0.3);
+}
+
+.btn-primary:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+@keyframes button-pulse {
+  0%, 100% {
+    box-shadow: 0 4px 6px rgba(7, 137, 48, 0.2);
+  }
+  50% {
+    box-shadow: 0 4px 20px rgba(7, 137, 48, 0.4);
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;
+  border: 2px solid var(--border-color);
+  color: var(--text-gray);
+  font-weight: 600;
+  font-size: 15px;
+  padding: 0 24px;
+  height: 44px;
+  min-height: 44px;
+  min-width: 140px;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  text-decoration: none;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(7, 137, 48, 0.1), transparent);
+  transition: left 0.5s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(7, 137, 48, 0.2);
+}
+
+.btn-secondary:hover::before {
+  left: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Touch targets: min 44px height for buttons on touch devices (iOS & Android) */
+@media (pointer: coarse) {
+  .btn-primary,
+  .btn-secondary,
+  button {
+    min-height: 44px;
+  }
+  .btn-primary,
+  .btn-secondary {
+    min-width: 44px;
+  }
+}

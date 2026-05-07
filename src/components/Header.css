@@ -1,0 +1,303 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 81px;
+  background-color: var(--bg-white);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1000;
+  transform: translateY(0);
+  opacity: 1;
+  border-radius: 0 0 24px 24px;
+  overflow: hidden;
+}
+
+.header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 0 0 24px 24px;
+}
+
+.header-scrolled {
+  background-color: var(--bg-white);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.header .container {
+  padding-left: 20px;
+  padding-right: 80px;
+}
+
+.nav-wrapper {
+  width: 1232px;
+  margin-left: 0;
+  padding-left: 0;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-img {
+  height: 60px;
+  width: auto;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.menu-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-dark);
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+/* Services trigger (opens sub-nav below header) */
+.nav-services-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-dark);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.3s ease;
+}
+
+.nav-services-trigger:hover {
+  color: var(--primary-color);
+}
+
+.nav-services-chevron {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+
+.nav-services-trigger[aria-expanded="true"] .nav-services-chevron {
+  transform: rotate(180deg);
+}
+
+/* Services sub-nav bar: fixed below the header, so it never overlaps the green line */
+.services-sub-nav {
+  position: fixed;
+  top: 81px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.25s ease, opacity 0.2s ease;
+}
+
+.services-sub-nav-open {
+  max-height: 80px;
+  opacity: 1;
+}
+
+.services-sub-nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  padding: 14px 20px;
+  max-width: 1232px;
+  margin: 0 auto;
+  padding-left: 20px;
+  padding-right: 80px;
+}
+
+.services-sub-nav-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.services-sub-nav-link:hover {
+  color: var(--primary-color);
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-line {
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+.menu-line.rotate-top {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.menu-line.hidden {
+  opacity: 0;
+}
+
+.menu-line.rotate-bottom {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.mobile-nav {
+  display: none;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  background-color: var(--bg-white);
+  border: 1px solid var(--border-color);
+  border-top: 2px solid var(--primary-color);
+  border-radius: 8px;
+  margin-top: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.mobile-nav-open {
+  max-height: 400px;
+  opacity: 1;
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 16px;
+}
+
+.mobile-nav-link {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: var(--text-dark);
+  padding: 8px 0;
+  transition: color 0.3s ease;
+}
+
+.mobile-nav-link:hover {
+  color: var(--primary-color);
+}
+
+.mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.mobile-nav-label {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-gray);
+  padding: 8px 0 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.mobile-nav-sublink {
+  padding-left: 16px;
+  font-weight: 500;
+}
+
+.mobile-cta {
+  width: 100%;
+  margin-top: 8px;
+}
+
+@media (max-width: 1024px) {
+  .header .container {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .nav-wrapper {
+    width: 100%;
+    padding: 0;
+    margin-left: 0;
+  }
+
+  .nav-links {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: flex;
+  }
+
+  .mobile-nav {
+    display: block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .services-sub-nav {
+    top: 70px;
+  }
+
+  .services-sub-nav-inner {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    height: 70px;
+  }
+
+  .nav-wrapper {
+    height: 70px;
+  }
+
+  .logo-img {
+    height: 32px;
+  }
+
+  .services-sub-nav {
+    top: 70px;
+  }
+}

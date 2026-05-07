@@ -1,0 +1,224 @@
+/* Business Services page - template layout with AEKS styling */
+
+/* Override default business-services chunk styling for new layout */
+.business-services-page .business-services {
+  margin-top: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+}
+
+/* Header: 2-column layout */
+.business-services-page .business-header {
+  padding: 60px 0 80px;
+  position: relative;
+  z-index: 1;
+}
+
+.business-header-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px 60px;
+  align-items: start;
+}
+
+.business-header-text {
+  min-width: 0;
+}
+
+.business-header-text h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  line-height: 1.15;
+  color: var(--text-dark);
+  margin-bottom: 20px;
+}
+
+.business-header-text p {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text-gray);
+}
+
+.business-header-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px 20px;
+  align-items: stretch;
+  width: 100%;
+  min-width: 0;
+}
+
+.business-stat-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 118px;
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px 16px;
+  text-align: center;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+  transition: all 0.3s ease;
+}
+
+.business-stat-box:hover {
+  border-color: var(--primary-color);
+  box-shadow: 0 8px 24px rgba(7, 137, 48, 0.12);
+}
+
+.business-stat-number {
+  font-size: 2.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 8px;
+}
+
+.business-stat-label {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-gray);
+  font-weight: 500;
+}
+
+/* Services section header (centered) */
+.business-services-page .business-services-header-block {
+  text-align: center;
+  margin: 0 0 48px;
+  position: relative;
+  z-index: 1;
+}
+
+.business-services-page .business-services-header-block h2 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  color: var(--text-dark);
+  margin-bottom: 16px;
+}
+
+.business-services-page .business-services-header-block p {
+  font-size: 1.1rem;
+  color: var(--text-gray);
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Industries section */
+.business-industries-section {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 24px;
+  padding: 56px 48px;
+  margin: 80px 0;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+.business-industries-section h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  text-align: center;
+  margin-bottom: 40px;
+  color: var(--text-dark);
+}
+
+.business-industries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+.business-industry-tag {
+  background: rgba(7, 137, 48, 0.06);
+  border: 1px solid rgba(7, 137, 48, 0.2);
+  padding: 16px 20px;
+  border-radius: 12px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-dark);
+  transition: all 0.3s ease;
+}
+
+.business-industry-tag:hover {
+  background: rgba(7, 137, 48, 0.1);
+  border-color: var(--primary-color);
+}
+
+/* CTA section */
+.business-cta-section {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-hover) 100%);
+  border-radius: 24px;
+  padding: 56px 48px;
+  text-align: center;
+  margin: 80px 0 40px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 32px rgba(7, 137, 48, 0.25);
+}
+
+.business-cta-section h2 {
+  font-size: clamp(1.5rem, 2.5vw, 2.25rem);
+  color: white;
+  margin-bottom: 12px;
+}
+
+.business-cta-section p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 32px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.business-cta-section .btn-primary {
+  background: white;
+  color: var(--primary-color);
+}
+
+.business-cta-section .btn-primary:hover {
+  background: var(--bg-light);
+  color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .business-header-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .business-industries-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .business-services-page .business-header {
+    padding: 40px 0 56px;
+  }
+
+  .business-header-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .business-industries-section {
+    padding: 40px 24px;
+  }
+
+  .business-industries-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .business-cta-section {
+    padding: 40px 24px;
+    margin: 56px 0 32px;
+  }
+}

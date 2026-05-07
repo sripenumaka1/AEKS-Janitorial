@@ -1,0 +1,162 @@
+.footer {
+  position: relative;
+  z-index: 2;
+  height: 433px;
+  background-color: var(--text-dark);
+}
+
+.footer-content {
+  padding-top: 64px;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.footer-sections {
+  display: flex;
+  gap: 32px;
+}
+
+.footer-section {
+  width: 284px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.footer-logo {
+  display: flex;
+  align-items: center;
+}
+
+.footer-logo-img {
+  height: 60px;
+  width: auto;
+}
+
+.footer-description {
+  width: 281px;
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-light);
+}
+
+.social-icons {
+  display: flex;
+  gap: 12px;
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  background-color: #374151;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-light);
+  font-size: 16px;
+}
+
+.footer-section h4 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 28px;
+  color: white;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-link {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-light);
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.contact-item {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.contact-icon {
+  width: 16px;
+  height: 16px;
+  color: var(--text-light);
+}
+
+.contact-text {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-light);
+}
+
+.footer-bottom {
+  width: 100%;
+  height: 57px;
+  border-top: 1px solid #374151;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-bottom p {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-light);
+  text-align: center;
+}
+
+@media (max-width: 1024px) {
+  .footer {
+    height: auto;
+    padding-bottom: 32px;
+  }
+
+  .footer-sections {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .footer-section {
+    width: calc(50% - 16px);
+    min-width: 250px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-section {
+    width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-description {
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .contact-info {
+    align-items: center;
+  }
+}

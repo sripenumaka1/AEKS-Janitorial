@@ -1,0 +1,602 @@
+.about-page {
+  padding-top: 81px;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  background: linear-gradient(135deg, #f0fdf4 0%, #ffffff 25%, #f0fdf4 50%, #ffffff 75%, #f0fdf4 100%);
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.particles-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: var(--primary-color);
+  border-radius: 50%;
+  opacity: 0;
+  animation: particle-fade-in 1s ease-in forwards, float-around infinite ease-in-out;
+  will-change: transform, opacity;
+}
+
+@keyframes particle-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 0.35;
+    transform: scale(1);
+  }
+}
+
+@keyframes float-around {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(40px, -30px) scale(1.2);
+  }
+  50% {
+    transform: translate(-30px, 40px) scale(0.8);
+  }
+  75% {
+    transform: translate(30px, 30px) scale(1.1);
+  }
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+}
+
+.about-page .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* Hero - 1600px width, 16:9 aspect ratio (900px height at full size; scales to ~400-800px on smaller screens) */
+.about-hero {
+  position: relative;
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto 48px;
+  border-radius: 0;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 400px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.about-hero-image {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.about-hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.about-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
+}
+
+.about-hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  padding: 48px 48px 40px 80px;
+  max-width: 800px;
+}
+
+.about-hero h1 {
+  font-size: 40px;
+  line-height: 48px;
+  color: #ffffff;
+  margin-bottom: 20px;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.about-hero-lead {
+  font-size: 18px;
+  line-height: 28px;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Stats */
+.about-stats {
+  padding: 32px 0 56px;
+}
+
+.about-stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-stat-item {
+  text-align: center;
+  padding: 24px 16px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(7, 137, 48, 0.12);
+}
+
+.about-stat-number {
+  display: block;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.about-stat-label {
+  font-size: 14px;
+  color: var(--text-gray);
+}
+
+/* Story */
+.about-story {
+  padding: 48px 0 56px;
+}
+
+.about-story h2,
+.about-mission h2,
+.about-values h2,
+.about-commitment h2 {
+  font-size: 28px;
+  line-height: 36px;
+  color: var(--text-dark);
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.about-story-content {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.about-story-content p {
+  font-size: 17px;
+  line-height: 28px;
+  color: var(--text-gray);
+  margin-bottom: 20px;
+}
+
+.about-story-content p:last-child {
+  margin-bottom: 0;
+}
+
+/* Mission */
+.about-mission {
+  padding: 48px 0 56px;
+}
+
+.about-mission-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-mission-card {
+  padding: 32px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid rgba(7, 137, 48, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-mission-card h3 {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 12px;
+}
+
+.about-mission-card p {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--text-gray);
+}
+
+/* Values */
+.about-values {
+  padding: 48px 0 56px;
+}
+
+.about-values h2 {
+  margin-bottom: 32px;
+}
+
+.about-values-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-value-card {
+  text-align: center;
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid rgba(7, 137, 48, 0.1);
+  transition: all 0.3s ease;
+}
+
+.about-value-card:hover {
+  box-shadow: 0 8px 28px rgba(7, 137, 48, 0.12);
+  transform: translateY(-4px);
+}
+
+.about-value-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #078930, #10b981);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 16px;
+}
+
+.about-value-card h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.about-value-card p {
+  font-size: 14px;
+  line-height: 22px;
+  color: var(--text-gray);
+}
+
+/* Commitment */
+.about-commitment {
+  padding: 48px 0 56px;
+}
+
+.about-commitment h2 {
+  margin-bottom: 32px;
+}
+
+.about-commitment-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.about-commitment-item {
+  text-align: center;
+  padding: 32px 24px;
+  border-radius: 16px;
+  background: white;
+  border: 1px solid rgba(7, 137, 48, 0.12);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+.about-commitment-icon {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #078930, #10b981);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.about-commitment-item h3 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.about-commitment-item p {
+  font-size: 15px;
+  line-height: 24px;
+  color: var(--text-gray);
+}
+
+.about-content {
+  padding: 80px 0 60px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header {
+  margin-bottom: 64px;
+  text-align: center;
+}
+
+.section-header h1,
+.section-header h2 {
+  font-size: 36px;
+  line-height: 40px;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.section-header p {
+  font-size: 20px;
+  line-height: 28px;
+  color: var(--text-gray);
+}
+
+/* 2x2 Grid Layout for Why Choose Us */
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.feature-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px 32px;
+  border-radius: 20px;
+  background: white;
+  border: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.feature-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  padding: 2px;
+  background: linear-gradient(135deg, transparent, transparent);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.feature-card:hover::before {
+  background: linear-gradient(135deg, #078930, #10b981, #34d399);
+  opacity: 1;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(7, 137, 48, 0.15);
+  background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+}
+
+.feature-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
+}
+
+.feature-card:hover .feature-icon {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.feature-icon.primary {
+  background: linear-gradient(135deg, #078930, #10b981);
+}
+
+.feature-icon.secondary {
+  background: linear-gradient(135deg, #0369a1, #0ea5e9);
+}
+
+.feature-icon.accent {
+  background: linear-gradient(135deg, #c026d3, #e879f9);
+}
+
+.feature-card h3 {
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  font-size: 16px;
+  line-height: 24px;
+  color: var(--text-gray);
+}
+
+@media (max-width: 1024px) {
+  .about-hero {
+    min-height: 400px;
+  }
+
+  .about-hero-content {
+    padding: 40px 40px 32px 48px;
+  }
+
+  .features-grid {
+    gap: 24px;
+    max-width: 700px;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-values-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-mission-grid {
+    gap: 24px;
+  }
+
+  .about-commitment-content {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-page {
+    padding-top: 70px;
+  }
+
+  .about-hero {
+    margin-bottom: 40px;
+    min-height: 400px;
+  }
+
+  .about-hero-content {
+    padding: 32px 20px 24px 24px;
+  }
+
+  .about-content {
+    padding: 60px 0 40px;
+  }
+
+  .section-header h1,
+  .section-header h2 {
+    font-size: 32px;
+    line-height: 36px;
+  }
+
+  .section-header p {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  .features-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 0 16px;
+  }
+
+  .feature-card {
+    padding: 32px 24px;
+  }
+
+  .about-hero h1 {
+    font-size: 32px;
+    line-height: 40px;
+  }
+
+  .about-hero-lead {
+    font-size: 16px;
+    line-height: 26px;
+    padding: 0 16px;
+  }
+
+  .about-stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .about-stat-number {
+    font-size: 26px;
+  }
+
+  .about-stat-label {
+    font-size: 12px;
+  }
+
+  .about-story,
+  .about-mission,
+  .about-values,
+  .about-commitment {
+    padding: 36px 0 48px;
+  }
+
+  .about-story h2,
+  .about-mission h2,
+  .about-values h2,
+  .about-commitment h2 {
+    font-size: 24px;
+    line-height: 32px;
+  }
+
+  .about-story-content {
+    padding: 0 16px;
+  }
+
+  .about-story-content p {
+    font-size: 16px;
+  }
+
+  .about-mission-grid {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+
+  .about-values-grid {
+    grid-template-columns: 1fr;
+    padding: 0 16px;
+  }
+
+  .about-commitment-content {
+    padding: 0 16px;
+  }
+}

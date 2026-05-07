@@ -1,0 +1,106 @@
+.cleaning-process-media {
+  padding: 72px 0 88px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.cleaning-process-media::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 137, 48, 0.04) 0%,
+    transparent 45%,
+    rgba(7, 137, 48, 0.03) 100%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cleaning-process-media .container {
+  position: relative;
+  z-index: 1;
+}
+
+.cleaning-process-media__header {
+  margin-bottom: 48px;
+}
+
+.cleaning-process-media__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.cleaning-process-media__card {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.cleaning-process-media__frame {
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+  background: var(--bg-light);
+  position: relative;
+  /* No fixed aspect-ratio — media keeps its natural proportions (no crop/zoom) */
+}
+
+.cleaning-process-media__frame--video {
+  background: #0f172a;
+}
+
+.cleaning-process-media__frame img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cleaning-process-media__video {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cleaning-process-media__caption {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-gray);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+@media (max-width: 1100px) {
+  .cleaning-process-media__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .cleaning-process-media__card--image {
+    grid-column: 1 / -1;
+    max-width: 640px;
+    margin: 0 auto;
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .cleaning-process-media {
+    padding: 56px 0 64px;
+  }
+
+  .cleaning-process-media__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cleaning-process-media__card--image {
+    max-width: none;
+  }
+}
